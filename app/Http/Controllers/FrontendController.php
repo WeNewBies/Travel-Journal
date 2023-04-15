@@ -10,6 +10,7 @@ class FrontendController extends Controller
 {
     public function index(){
         $articles = collect($this->getArticle()['articles'])->take(4);
+
         return view('home', compact('articles'));
     }
 

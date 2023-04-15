@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'travel_interests',
+        'travel_destinations',
     ];
 
     /**

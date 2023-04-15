@@ -1,0 +1,12 @@
+body {
+    min-height: 100vh;
+}
+
+.c-item {
+    height: 400px;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+}

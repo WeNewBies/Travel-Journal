@@ -34,9 +34,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="#" class="main_btn text-decoration-none">
-                        Get Started
-                    </a>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="main_btn text-decoration-none">
+                            Logout
+                        </a>
+                    @elseif(request()->url() == url('/login'))
+                        <a href="{{url('/register')}}" class="main_btn text-decoration-none">
+                            Register
+                        </a>
+                        <a href="{{url('/home')}}" class="main_btn text-decoration-none">
+                            Home
+                        </a>
+                    @elseif(request()->url() == url('/login'))
+                        <a href="{{url('/login')}}" class="main_btn text-decoration-none">
+                            Login
+                        </a>
+                        <a href="{{url('/home')}}" class="main_btn text-decoration-none">
+                            Home
+                        </a>
+                    @else
+                        <a href="{{url('/login')}}" class="main_btn text-decoration-none">
+                            Login/Register
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
