@@ -4,7 +4,6 @@
 
     {{--Introduction--}}
     <div class="hero">
-        <x-frontend.navbar />
         <div class="container bg-white" style="">
             <div class="row container-fluid w-100 mt-5 mt-md-0">
                 <div class="col-md-6 h-100 mt-md-5">
@@ -46,7 +45,7 @@
     </div>
 
     {{--Features--}}
-    <div class="hero allCenter">
+    <div class="hero d-flex justify-content-center align-items-center">
         <div class="container d-flex  align-items-center d-flex flex-column">
             <h3 class="section-title">Explore Our Features</h3>
             <div class="features mt-4  row">
@@ -99,38 +98,50 @@
 
     {{--Blogs--}}
     <div class="hero">
-        <div class="container allCenter flex-column">
-            <h3 class="section-title mb-4">Travel Blogs</h3>
-            <div class="cards d-flex flex-row flex-wrap">
-                <div class="card ms-3 mt-4">
-                <div class="card-header cardHead">
-                    img
-                </div>
-                <div class="card-body cardBody">
-                    info about blog
-                </div>
+        <div class="container d-flex justify-content-center flex-column">
+            <div class="d-flex justify-content-center align-items-center ">
+                <h3 class="section-title mb-4">Travel Blogs</h3>
             </div>
+                <div class="cards d-flex justify-content-center flex-row flex-wrap">
+                @foreach($articles as $article)
+                    <div class="card ms-3 mt-4" style="max-width: 250px;">
+                        <div class="card-header rounded-top p-0">
+                            <img class="rounded-top" style="width: 100%" src="{{$article['urlToImage']}}" alt="">
+                        </div>
+                        <div class="card-body justify-content-between d-flex flex-column justify-content-between" style="min-height: 300px">
+                            <label class="fw-bold">
+                                {{$article['title']}}
+                            </label>
+                            <label class="mt-3">
+                                {{\Illuminate\Support\Str::limit($article['description'], 60, '...')}}
+                            </label>
+                            <a href="{{$article['url']}}" class="text-decoration-none mt-4">
+                                <button class="main_btn d-flex mx-auto justify-content-center align-items-center ">
+                                    <label class="me-3 fs-6 fw-light">
+                                        Read More
+                                    </label>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 my-3 d-flex justify-content-end">
+                    <a href="{{url('/blogs')}}" class="text-decoration-none">
+                        <button class="main_btn d-flex justify-content-center fs-2">
+                            <label class="me-3 fs-5 fw-light">
+                                More Blogs
+                            </label>
+                            <div class="fs-6">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-    {{--News--}}
-    <div class="hero">
-        <div class="container allCenter flex-column">
-            <h3 class="section-title mb-4">Travel News</h3>
-            <div class="cards d-flex flex-row flex-wrap">
-                <div class="card ms-3 mt-4">
-                    <div class="card-header cardHead">
-                        img
-                    </div>
-                    <div class="card-body cardBody">
-                        info about news
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <x-frontend.footer />
     </div>
 
 @endsection

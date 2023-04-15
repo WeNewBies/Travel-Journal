@@ -1,5 +1,6 @@
 .hero{
-    min-height: 100vh;
+    min-height: 80vh;
+    margin-top: 30px;
 }
 .allCenter{
     display: flex;
@@ -255,17 +256,6 @@
 
 /*Title ends*/
 
-/*card starts*/
-
-.cardHead{
-    min-height: 150px;
-    min-width: 200px;
-}
-.cardBody{
-    min-height: 70px;
-}
-
-/*card ends*/
 
 
 /*footer starts*/
@@ -305,4 +295,20 @@
 .footer-text i {
     color: #f8b600; }
 
-/*Footer ends*/
+/*footer ends*/
+
+/*Post css starts*/
+
+.post-preview .post-title{
+    color: black;
+    font-weight: bold;
+}
+.post-preview a{
+    text-decoration: none;
+}
+.post-preview .post-meta{
+    font-style: italic;
+    color: #f8b600;
+}
+
+/*Post css ends*/

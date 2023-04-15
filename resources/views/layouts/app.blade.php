@@ -16,11 +16,16 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    {{--icons--}}
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
     <main>
+        <x-frontend.navbar />
         @yield('content')
+        <x-frontend.footer />
     </main>
     <div class="loader" data-aos="fade-up">
         <div class="spinner-border" role="status">

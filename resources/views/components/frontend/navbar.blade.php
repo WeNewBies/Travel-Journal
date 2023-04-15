@@ -8,16 +8,16 @@
         </div>
         <ul class="list menu-left">
             <li>
-                <a href="#">Home</a>
+                <a href="{{url('/home')}}">Home</a>
             </li>
             <li>
                 <a href="#">My Journal</a>
             </li>
             <li>
-                <a href="">Blogs</a>
+                <a href="">Planner</a>
             </li>
             <li>
-                <a href="">Planner</a>
+                <a href="{{url('/blogs')}}">Blogs</a>
             </li>
         </ul>
     </div>
