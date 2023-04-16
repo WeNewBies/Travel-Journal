@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Install PHP dependencies with Composer
+composer install
 composer update
 composer install --no-progress --no-suggest --no-interaction --prefer-dist --optimize-autoloader
 
