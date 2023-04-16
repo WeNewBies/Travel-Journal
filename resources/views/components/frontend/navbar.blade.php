@@ -14,7 +14,7 @@
                 <a href="#">My Journal</a>
             </li>
             <li>
-                <a href="">Planner</a>
+                <a href="{{url('/planner')}}">Planner</a>
             </li>
             <li>
                 <a href="{{url('/blogs')}}">Blogs</a>

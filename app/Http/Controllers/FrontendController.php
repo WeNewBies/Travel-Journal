@@ -18,6 +18,17 @@ class FrontendController extends Controller
         $articles = $this->getArticle();
         return view('blogs', compact('articles'));
     }
+
+    public function planner(){
+        return view('planner/index');
+    }
+
+    public function createPlan(){
+        return view('planner/createPlan');
+    }
+
+
+    //Special Functions
     protected function getArticle(){
         $cacheKey = 'api-response';
         $response = Cache::get($cacheKey);
