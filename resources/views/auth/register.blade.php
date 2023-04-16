@@ -114,9 +114,9 @@
                         </label>
                     </div>
                     <div class="text-center my-3">
-                        <button type="submit" class="main_btn">
-                            <label class="fs-6" type="submit">Register</label>
-                            <i class="fa fa-angle-right fs-6" aria-hidden="true"></i>
+                        <button type="submit" class="main_btn fs-6">
+                            Register
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </button>
                     </div>
                 </form>

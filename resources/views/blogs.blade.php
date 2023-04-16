@@ -10,8 +10,8 @@
                 <!-- Post preview-->
                 @foreach($articles['articles'] as $article)
                     <div class="post-preview">
-                            <img class="rounded" style="width: 100%" src="{{$article['urlToImage']}}" alt="">
-                        <a href="{{$article['url']}}">
+                            <img class="rounded" style="width: 100%; max-height: 200px" src="{{$article['urlToImage']}}" alt="">
+                        <a href="{{$article['url']}}" target="_">
                             <h2 class="post-title fs-2 mt-2">{{$article['title']}}</h2>
                             <h3 class="post-subtitle fs-5">{{\Illuminate\Support\Str::limit($article['description'], 100, '...')}}</h3>
                         </a>

@@ -65,9 +65,9 @@
                             </label>
                         </div>
                         <div class="text-center my-3">
-                            <button type="submit" class="main_btn">
-                                <label class="fs-6" type="submit">Login</label>
-                                <i class="fa fa-angle-right fs-6" type="submit" aria-hidden="true"></i>
+                            <button type="submit" class="main_btn fs-6">
+                                Login
+                                <i class="fa fa-angle-right" type="submit" aria-hidden="true"></i>
                             </button>
                         </div>
                     </form>

@@ -17,16 +17,10 @@
 
                                 <div class="row ">
                                     <div class="col-12 my-3">
-                                        <a href="#" class="text-decoration-none">
-                                            <button class="main_btn d-flex justify-content-center align-items-center fs-2 ">
-                                                <label class="me-3 fs-5 fw-light">
-                                                    Get Started
-                                                </label>
-                                                <div class="fs-4">
-                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                                </div>
-                                            </button>
-                                        </a>
+                                        <button onclick="scrollToFeatures()" class="main_btn d-flex justify-content-center me-3 fs-5 fw-light align-items-center ">
+                                            Get Started
+                                            <i class="fa fa-angle-right fs-4 ms-2" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -48,41 +42,27 @@
     </div>
 
     {{--Features--}}
-    <div class="hero d-flex justify-content-center align-items-center">
+    <div id="features-section" class="hero d-flex justify-content-center align-items-center">
         <div class="container d-flex  align-items-center d-flex flex-column">
             <h3 class="section-title">Explore Our Features</h3>
             <div class="features mt-4  row">
                 <div class="col-12 d-flex flex-row flex-wrap">
 
-                    <a href="#" class="text-decoration-none ms-3 mt-3">
-                        <button class="main_btn allCenter">
-                            <label class="me-3 fs-6 fw-light">
+                    <a href="{{url('/blogs')}}" class="text-decoration-none ms-3 mt-3">
+                        <button class="main_btn me-3 fs-6 fw-light">
                                Blogs
-                            </label>
                         </button>
                     </a>
 
-                    <a href="#" class="text-decoration-none ms-3 mt-3">
-                        <button class="main_btn allCenter">
-                            <label class="me-3 fs-6 fw-light">
-                                News
-                            </label>
+                    <a href="{{url('/planner')}}" class="text-decoration-none ms-3 mt-3">
+                        <button class="main_btn me-3 fs-6 fw-light">
+                            Trip Planner
                         </button>
                     </a>
 
-                    <a href="#" class="text-decoration-none ms-3 mt-3">
-                        <button class="main_btn allCenter">
-                            <label class="me-3 fs-6 fw-light">
-                                Budget Planner
-                            </label>
-                        </button>
-                    </a>
-
-                    <a href="#" class="text-decoration-none ms-3 mt-3">
-                        <button class="main_btn allCenter">
-                            <label class="me-3 fs-6 fw-light">
-                                My Journal
-                            </label>
+                    <a href="{{url('/journal')}}" class="text-decoration-none ms-3 mt-3">
+                        <button class="main_btn me-3 fs-6 fw-light">
+                            My Journal
                         </button>
                     </a>
 
@@ -92,6 +72,42 @@
     </div>
 
     {{--Blogs--}}
-    <x-frontend.blogs :data="$articles" />
+    @if(isset($articles))
+        <x-frontend.blogs :data="$articles" />
+    @endif
+@endsection
 
+@section('scripts')
+    <script>
+        function scrollToFeatures() {
+            // Get the position of the features section relative to the top of the page
+            const featuresSection = document.getElementById('features-section');
+            const position = featuresSection.getBoundingClientRect().top + window.pageYOffset;
+
+            // Calculate the distance to scroll
+            const distance = position - window.pageYOffset;
+
+            // Set the duration of the scrolling animation
+            const duration = 1000; // 1000 milliseconds = 1 second
+
+            // Calculate the number of frames for the animation
+            const frames = Math.ceil(duration / 16); // 16 milliseconds per frame
+
+            // Calculate the distance to scroll for each frame
+            const distancePerFrame = distance / frames;
+
+            // Scroll to the features section
+            let currentFrame = 0;
+            const scrollInterval = setInterval(() => {
+                if (currentFrame < frames) {
+                    window.scrollBy(0, distancePerFrame);
+                    currentFrame++;
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, 16); // 16 milliseconds per frame
+        }
+
+
+    </script>
 @endsection
