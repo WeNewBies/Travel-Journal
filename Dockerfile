@@ -25,21 +25,15 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # Change ownership of the storage directory
 RUN chown -R www-data:www-data /var/www/html/storage
 
-FROM mysql:latest
-ENV MYSQL_ROOT_PASSWORD=password
-ENV MYSQL_DATABASE=mydb
-COPY init.sql /docker-entrypoint-initdb.d/
+# Set permissions for storage and bootstrap/cache folders
+RUN chgrp -R www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port 80
 EXPOSE 80
 
 # Set up entrypoint
 COPY entrypoint.sh /usr/local/bin/
-
-# Set permissions for storage and bootstrap/cache folders
-RUN chgrp -R www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
-
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
