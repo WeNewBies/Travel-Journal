@@ -37,10 +37,6 @@ We welcome contributions from the community! To contribute to Tour Journal, foll
 4. Push to the branch: `git push origin my-feature-branch`
 5. Submit a pull request with your changes
 
-## Credits
-
-Tour Journal was created by [Your Name] and [Contributor Name]. Special thanks to [Special Thanks To] for their support and contributions.
-
 ## License
 
 Tour Journal is licensed under the [MIT License](https://opensource.org/licenses/MIT).
